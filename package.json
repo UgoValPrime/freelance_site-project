@@ -1,0 +1,14 @@
+{
+  "name": "freelance_site",
+  "version": "1.0.0",
+  "description": "probation project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "blaze",
+  "license": "ISC",
+  "dependencies": {
+    "blaze": "^5.0.0-old"
+  }
+}

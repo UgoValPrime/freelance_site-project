@@ -1,0 +1,28 @@
+{
+    "user": [{
+        "id": 1,
+        "firstname": "ariesprime",
+        "lastname": "aiezen",
+        "email": "ugoval93@yahoo.com",
+        "username": "ariesprime",
+        "password": "nemesis101",
+        "level": "freelancer"
+    }],
+    "gigs": [{
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum ullamcorper elit vulputate tempor. Donec a volutpat metus, at finibus nisl. Vestibulum maximus neque at nunc consequat, vitae tincidunt sapien fermentum. Aenean laoreet mi sed lorem varius, et placerat lacus gravida. Suspendisse erat nisi, semper vel facilisis ut, commodo vitae ante. Aenean dictum in ex et egestas. Praesent tortor justo, cursus sed pretium eget, consequat in risus. Mauris auctor auctor suscipit. Curabitur in ultricies nisi. Phasellus auctor molestie erat. Donec interdum non ligula et hendrerit. Sed ut odio ac eros maximus rhoncus et eu urna. Cras nec augue sed elit interdum commodo.",
+        "budget": 6,
+        "duration": 3,
+        "category": "graphics & design",
+        "id": 1
+    }],
+    "bookings": [{
+        "gig_id": 1,
+        "freelancer id": 1,
+        "user": 1,
+        "id": 1
+    }],
+    "freelancer": [{
+        "skill": ["web developer", "writer", "graphic design"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum ullamcorper elit vulputate tempor. Donec a volutpat metus, at finibus nisl. Vestibulum maximus neque at nunc consequat, vitae tincidunt sapien fermentum. Aenean laoreet mi sed lorem varius, et placerat lacus gravida. Suspendisse erat nisi, semper vel facilisis ut, commodo vitae ante. Aenean dictum in ex et egestas. Praesent tortor justo, cursus sed pretium eget, consequat in risus. Mauris auctor auctor suscipit. Curabitur in ultricies nisi. Phasellus auctor molestie erat. Donec interdum non ligula et hendrerit. Sed ut odio ac eros maximus rhoncus et eu urna. Cras nec augue sed elit interdum commodo."
+    }]
+}

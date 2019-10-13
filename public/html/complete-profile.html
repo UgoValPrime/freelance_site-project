@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container" style="margin-bottom: 20px; margin-top: 30px;">
+        <h1><strong style="color: rgb(17, 98, 9);"> ADO</strong><strong style="color: rgba(199, 186, 0, 0.911);">nis</strong></h1>
+    </div>
+    <center>
+        <div class="container">
+            <h3 class="display-4" style="color:rgb(17, 98, 9) ;">Complete Your Profile </h3>
+        </div>
+    </center>
+    <center>
+
+        <form id="completeprofile" style="width: 550px;">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label" style="color: rgba(199, 186, 0, 0.911);"> i am a...
+            </label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" id="description" placeholder="personality" style="border-radius: 0%;"></textarea>
+                </div>
+            </div>
+
+            </div>
+            <div class="form-group row">
+                <label for="text" class="col-sm-2 col-form-label" style="color: rgba(199, 186, 0, 0.911);">Qualification</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="qualification" placeholder="qualification" style="border-radius: 0%;">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="text" class="col-sm-2 col-form-label" style="color: rgba(199, 186, 0, 0.911);">address</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address" placeholder="where you reside" style="border-radius: 0%;">
+                </div>
+            </div>
+            <div class="form-check" style="color: rgba(199, 186, 0, 0.911); border-radius: 0px;">
+                <h4 style="color:rgb(17, 98, 9);">Choose Your Skill Set</h4>
+                <ul style="list-style: none; ">
+                    <li> <input class="form-check-input" type="checkbox" value="Graphics and Design" name="skill">
+                        <label class="form-check-label" for="defaultCheck1">
+                    Graphics and Design
+                </label></li>
+                    <li> <input class="form-check-input" type="checkbox" value=" Digital Marketing" name="skill">
+                        <label class="form-check-label" for="defaultCheck1">
+                        Digital Marketing
+                    </label></li>
+                    <li> <input class="form-check-input" type="checkbox" value=" Writing and Translation" name="skill">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Writing and Translation
+                        </label></li>
+                    <li> <input class="form-check-input" type="checkbox" value="Video and Animation" name="skill">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Video and Animation
+                        </label></li>
+                    <li> <input class="form-check-input" type="checkbox" value="Music and Audio" name="skill">
+                        <label class="form-check-label" for="defaultCheck1">
+                                Music and Audio
+                            </label></li>
+                    <li> <input class="form-check-input" type="checkbox" value=" Programming and Tech" name="skill">
+                        <label class="form-check-label" for="defaultCheck1">
+                                Programming and Tech
+                            </label></li>
+                    <li> <input class="form-check-input" type="checkbox" value=" Business and Lifestyle" name="skill">
+                        <label class="form-check-label" for="defaultCheck1">
+                                Business and Lifestyle
+                            </label></li>
+                </ul>
+            </div>
+            <center>
+                <div class="form-group row">
+                    <div class="col-sm-10" style="margin-top: 10px;margin-bottom: 25px;">
+                        <center><button type="submit" class="btn btn-outline-success" style="color: rgba(199, 186, 0, 0.911);border-radius: 0%;">submit</button></center>
+                    </div>
+                </div>
+            </center>
+        </form>
+
+    </center>
+    </center>
+
+    <script src="/public/jquery2.js"></script>
+    <script src="/public/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#completeprofile").on("submit", function(e) {
+                e.preventDefault();
+                let data = {
+                    qualification: $("#qualification").val(),
+                    address: $("#adress").val(),
+                    description: $("#description").val(),
+                    Skill: $.each($("input[name = 'skill']:checked")).val()
+
+                }
+                $.ajax({
+                    url: "http://localhost:3000/freelancer",
+                    success: function(result) {
+                        alert('its done');
+                    },
+                    type: "POST",
+                    data: data
+                })
+            })
+
+        })
+    </script>
+</body>
+
+</html>
