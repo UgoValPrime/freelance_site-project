@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container" style="margin-bottom: 20px; margin-top: 30px;">
+        <h1><strong style="color: rgb(17, 98, 9);"> ADO</strong><strong style="color: rgba(199, 186, 0, 0.911);">nis</strong></h1>
+    </div>
+    <center>
+        <div class="container">
+            <h3 class="display-4" style="color:rgb(17, 98, 9) ;">freelancer Dashboard</h3>
+        </div>
+    </center>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+        <div class="container">
+            <a class="navbar-brand h1" href="/index.html">
+                <h1 class="h2"><strong style="color: rgb(17, 98, 9);"> </strong><strong style="color: rgba(199, 186, 0, 0.911);"></strong></h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+
+                    </li>
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/public/html/create-gig.html">create Gig<span
+                                        class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">My Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/public/html/update-profile.html?" class="h4">Update profile</a>
+
+                </li>
+                </ul>
+                </span>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h1 id="fname"></h1>
+        <h4 id="user"></h4>
+        <p id="qualify"></p>
+        <p id="category"></p>
+        <p id="description"></p>
+    </div>
+    <div class="container" style="float: left;"> <button onclick="deleteProfile({current.id});" class="btn btn-light">delete</button>
+        <h1><button onclick="updateProfile()" class="btn btn-light" id="update">update</button></h1>
+    </div>
+    <script src="/public/jquery2.js"></script>
+    <script src="/public/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function() {
+            let url = new URLSearchParams(window.location.search);
+            let id = url.get('id');
+            console.log(id)
+            $.ajax({
+                url: `http://localhost:3000/freelancer/${id}`,
+                method: "GET",
+                success: function(response) {
+                    console.log(response.name)
+                    $("#fname").html(response.firstname);
+                    $("#user").text(response.username);
+                    $("#qualify").text(response.qualification);
+                    $("#category").text(response.skill);
+                    $("#description").text(response.description);
+                }
+            })
+
+        })
+    </script>
+    <script>
+        const userId = window.localStorage.getItem('id');
+        $('#update').on('click', function updateProfile() {
+            window.location = `update-profile.html?id=${userId}`
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container" style="margin-bottom: 20px; margin-top: 30px;">
+        <h1><strong style="color: rgb(17, 98, 9);"> ADO</strong><strong style="color: rgba(199, 186, 0, 0.911);">nis</strong></h1>
+    </div>
+    <center>
+        <div class="container">
+            <h3 class="display-4" style="color:rgb(17, 98, 9) ;">Update Your Profile </h3>
+        </div>
+    </center>
+    <center>
+
+        <form style="width: 550px;">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label" style="color: rgba(199, 186, 0, 0.911);"> i am
+                    a...
+                </label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" id="description" placeholder="personality" style="border-radius: 0%;"></textarea>
+                </div>
+            </div>
+
+            </div>
+            <div class="form-group row">
+                <label for="text" class="col-sm-2 col-form-label" style="color: rgba(199, 186, 0, 0.911);">Qualification</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="qualification" placeholder="qualification" style="border-radius: 0%;">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="text" class="col-sm-2 col-form-label" style="color: rgba(199, 186, 0, 0.911);">address</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address" placeholder="where you reside" style="border-radius: 0%;">
+                </div>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <select style="border-radius: 0%;" id="category" class="custom-select custom-select-sm" style="margin-top: 30px; margin-bottom: 30px;">
+                    <option id="ban" selected>Business & lifestyle</option>
+                    <option id="gad" value="Graphics & Design">Graphics & Design</option>
+                    <option id="dm" value="Digital Marketing">Digital Marketing</option>
+                    <option id="wat" value="Writing & Translation">Writing & Translation</option>
+                    <option id="vaa" value="Video & Animation">Video & Animation</option>
+                    <option id="maa" value="Music & Audio">Music & Audio</option>
+                    <option id="pat" value="Programming & tech">Programming & tech</option>
+            
+                </select>
+            </div>
+            <center>
+                <div class="form-group row">
+                    <div class="col-sm-10" style="margin-top: 10px;margin-bottom: 25px;">
+                        <center><button type="submit" class="btn btn-outline-success" style="color: rgba(199, 186, 0, 0.911);border-radius: 0%;">Update</button></center>
+                    </div>
+                </div>
+            </center>
+        </form>
+
+    </center>
+    </center>
+
+    <script src="/public/jquery2.js"></script>
+    <script src="/public/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let id = urlParams.get('id');
+            console.log(id)
+            $.ajax({
+                url: `http://localhost:3000/freelancer/${id}`,
+                type: "GET",
+                success: function(res) {
+                    console.log(window.location.search)
+                    $("#qualify").val(res.qualification)
+                    $("#description").val(res.description)
+                    $("#address").val(res.address)
+                    $("#category").val(res.skill)
+
+                }
+            })
+
+
+            $("#updateAnimal").on("submit", function(e) {
+                e.preventDefault();
+                let data = {
+
+
+                    qualification: $("#qualify").val(),
+                    description: $("#description").val(),
+                    address: $("#address").val(),
+                    skill: $("#category").val()
+
+                }
+                $.ajax({
+                    url: `http://localhost:3000/freelancer/${id}`,
+                    success: function(result) {
+                        alert('update successful');
+                    },
+                    type: "PUT",
+                    data: data
+                })
+            })
+
+        })
+    </script>
+</body>
+
+</html>

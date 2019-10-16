@@ -5,75 +5,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Adonis Login</title>
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <!--login css-->
+    <link rel="stylesheet" href="/public/css/loginStyles.css">
 </head>
 
 <body>
-    <div class="container" style="margin-bottom: 50px; margin-top: 30px;">
-        <h1><strong style="color: rgb(17, 98, 9);"> ADO</strong><strong style="color: rgba(199, 186, 0, 0.911);">nis</strong></h1>
+    <div class="container">
+        <h1 class="display-4 ">Adonis<span>Login</span></h1>
     </div>
-    <center>
-        <form class="needs-validation" novalidate style="width: 550px;">
-            <div class="form-row">
-                <div class="col-md-4 mb-3">
-                    <label for="validationTooltip01" style="color: rgba(199, 186, 0, 0.911)">First name</label>
-                    <input style="border-radius: 0%;" type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
-                    <div class="valid-tooltip">
-                        Looks good!
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="validationTooltip02" style="color: rgba(199, 186, 0, 0.911)">Last name</label>
-                    <input style="border-radius: 0%;" type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
-                    <div class="valid-tooltip">
-                        Looks good!
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="validationTooltipUsername" style="color: rgba(199, 186, 0, 0.911)">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" style="border-radius: 0%;" id="validationTooltipUsernamePrepend">@</span>
-                        </div>
-                        <input style="border-radius: 0%;" type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-                        <div class="invalid-tooltip">
-                            Please choose a unique and valid username.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6 mb-2">
-                    <label for="validationTooltip03" style="color: rgba(199, 186, 0, 0.911)">email</label>
-                    <input style="border-radius: 0%;" type="email" class="form-control" id="validationTooltip03" placeholder="email" required>
-                    <div class="invalid-tooltip">
-                        Please provide a valid email address.
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="validationTooltip04" style="color: rgba(199, 186, 0, 0.911)">password</label>
-                    <input style="border-radius: 0%;" type="password" class="form-control" id="validationTooltip04" placeholder="password" required>
-                    <div class="invalid-tooltip">
-                        Please choose a password.
-                    </div>
-                </div>
-            </div>
-            </div>
-            <select style="border-radius: 0%;" class="custom-select custom-select-sm" style="margin-top: 30px; margin-bottom: 30px;">
-                
-        <option selected>Open this select menu</option>
-        <option value="1">Freelance</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-    </select>
-            <button class="btn btn-outline-success" type="submit" style="color: rgba(199, 186, 0, 0.911);border-radius: 0%; margin-top: 15px;">Sign Up</button>
-        </form>
-    </center>
+    <Nav>
+        <div class="container-fluid " id="wrap">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="/public/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about.html">About</a>
+                </li>
+                <li class="nav-item" id="login">
+                    <a class="nav-link active" href="./login.html">Login</a>
+                </li>
+                <li class="nav-item" id="logout">
+                    <button class="btn btn-light" type="submit">Logout</button>
+                </li>
+            </ul>
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form" id="register">
+                <label>firstname:<input type="text" placeholder="firstname" id="fname"></label>
+                <label>lastname:<input type="text" placeholder="lastname" id="lname"></label>
+                <label>Email:   <input type="email" placeholder="email" id="mail"></label>
+                <label>Username:<input type="text" placeholder="username" id="user"></label>
+                <label>Password:<input type="password" placeholder="password" id="pass"></label>
+                <button type="submit">Create</button>
+                <p class="message">Already Registered?<a href="#">Login</a></p>
+            </form>
+            <form class="login-form" id="signin">
+                <label>Username:<input type="text" placeholder="username" id="signinuser"></label>
+                <label>Password:<input type="password" placeholder="password" id="signpass"></label>
+                <button type="submit">login</button>
+                <p class="message">Not Registered?<a href="#">Register</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="/public/jquery2.js"></script>
+    <script src="../js/login.js"></script>
+    <script>
+        $(document).ready(function() {
+            let user = window.localStorage.getItem('user');
+            if (user !== null) {
+                $('#logout').show();
+                $('#login').hide();
+            } else {
+                $('#logout').hide();
+                $('#login').show()
+            }
+            $("#register").on("submit", function(e) {
+                e.preventDefault(e);
+                let data = {
+                    firstname: $("#fname").val(),
+                    lastname: $("#lname").val(),
+                    username: $("#user").val(),
+                    email: $("#mail").val(),
+                    password: $("#pass").val(),
+                    age: $("#aged").val()
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: "http://localhost:3000/user",
+                    data: data,
+                    success: function(result) {
+                        alert("registration successful");
+                    }
+                })
+            })
+            $("#signin").on("submit", function(e) {
+                e.preventDefault(e);
+                let username = $("#signinuser").val();
+                let email = $("#mail").val();
+                let password = $("#signpass").val();
+
+                $.ajax({
+                    type: 'GET',
+                    url: `http://localhost:3000/user?username=${username}&password=${password}`,
+
+                    success: function(result) {
+                        let valid;
+                        if (result.length > 0) {
+                            window.location = "/public/html/homepage.html";
+                            window.localStorage.setItem('user', username);
+                        } else {
+                            alert("invalid email or password");
+                        }
 
 
-    <script src=" /public/js/bootstrap.js "></script>
-    <script src="/public/jquery2.js "></script>
+                    }
+                })
+            })
+            $("#logout").on('click', function() {
+                window.localStorage.removeItem('user');
+            })
+
+        })
+
+        $('.message a').click(function() {
+            $('form').animate({
+                height: "toggle",
+                opacity: "toggle"
+            }, "slow");
+        });
+    </script>
 </body>
 
 </html>

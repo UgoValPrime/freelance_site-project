@@ -1,28 +1,157 @@
 {
-    "user": [{
-        "id": 1,
-        "firstname": "ariesprime",
-        "lastname": "aiezen",
-        "email": "ugoval93@yahoo.com",
-        "username": "ariesprime",
-        "password": "nemesis101",
-        "level": "freelancer"
-    }],
-    "gigs": [{
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum ullamcorper elit vulputate tempor. Donec a volutpat metus, at finibus nisl. Vestibulum maximus neque at nunc consequat, vitae tincidunt sapien fermentum. Aenean laoreet mi sed lorem varius, et placerat lacus gravida. Suspendisse erat nisi, semper vel facilisis ut, commodo vitae ante. Aenean dictum in ex et egestas. Praesent tortor justo, cursus sed pretium eget, consequat in risus. Mauris auctor auctor suscipit. Curabitur in ultricies nisi. Phasellus auctor molestie erat. Donec interdum non ligula et hendrerit. Sed ut odio ac eros maximus rhoncus et eu urna. Cras nec augue sed elit interdum commodo.",
-        "budget": 6,
-        "duration": 3,
-        "category": "graphics & design",
-        "id": 1
-    }],
-    "bookings": [{
-        "gig_id": 1,
-        "freelancer id": 1,
-        "user": 1,
-        "id": 1
-    }],
-    "freelancer": [{
-        "skill": ["web developer", "writer", "graphic design"],
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum ullamcorper elit vulputate tempor. Donec a volutpat metus, at finibus nisl. Vestibulum maximus neque at nunc consequat, vitae tincidunt sapien fermentum. Aenean laoreet mi sed lorem varius, et placerat lacus gravida. Suspendisse erat nisi, semper vel facilisis ut, commodo vitae ante. Aenean dictum in ex et egestas. Praesent tortor justo, cursus sed pretium eget, consequat in risus. Mauris auctor auctor suscipit. Curabitur in ultricies nisi. Phasellus auctor molestie erat. Donec interdum non ligula et hendrerit. Sed ut odio ac eros maximus rhoncus et eu urna. Cras nec augue sed elit interdum commodo."
-    }]
+  "user": [
+    {
+      "id": 1,
+      "firstname": "ariesprime",
+      "lastname": "aiezen",
+      "email": "ugoval93@yahoo.com",
+      "username": "ariesprime",
+      "password": "nemesis101"
+    },
+    {
+      "email": "valeweleokenyi@yahoo.com",
+      "id": 2
+    },
+    {
+      "firstname": "ewele",
+      "lastname": "val",
+      "email": "valeweleokenyi@yahoo.com",
+      "username": "eweval",
+      "password": "123456",
+      "level": "1",
+      "id": 4
+    },
+    {
+      "firstname": "nduka",
+      "lastname": "val",
+      "email": "ndukaval99@gmail.com",
+      "username": "lunaticX",
+      "password": "2468fam",
+      "level": "Freelance",
+      "id": 5
+    },
+    {
+      "firstname": "nduka",
+      "lastname": "val",
+      "email": "ndukaval@gmail.com",
+      "username": "the_unknown",
+      "password": "098765",
+      "level": "Freelance",
+      "id": 6
+    },
+    {
+      "firstname": "sbdfzdb",
+      "lastname": "svsdndbnd",
+      "email": "valeweleokenyi@yahoo.com",
+      "username": "vxbdnfdx",
+      "password": "nemesis",
+      "level": "Freelance",
+      "id": 7
+    },
+    {
+      "firstname": "Ayebakuro",
+      "lastname": "val",
+      "email": "valeweleokenyi@slack.com",
+      "username": "kuroval",
+      "password": "hunter",
+      "level": "Freelance",
+      "id": 8
+    },
+    {
+      "firstname": "Ayebakuro",
+      "lastname": "val",
+      "email": "valeweleokenyi@slack.com",
+      "username": "kuroval",
+      "password": "hunter",
+      "level": "Freelance",
+      "id": 9
+    },
+    {
+      "firstname": "sbdfzdb",
+      "lastname": "svsdndbnd",
+      "email": "iceboss101@gmail.com",
+      "username": "ugoval",
+      "password": "123456",
+      "level": "Freelance",
+      "id": 10
+    },
+    {
+      "firstname": "wellz",
+      "lastname": "val",
+      "email": "valeweleokenyi@slack.com",
+      "username": "ewele",
+      "password": "123456",
+      "level": "Freelance",
+      "id": 11
+    },
+    {
+      "firstname": "sbdfzdb",
+      "lastname": "val",
+      "email": "iceboss@gmail.com",
+      "username": "prometius",
+      "password": "123456",
+      "User": "user",
+      "freelance": "Freelance",
+      "id": 12
+    },
+    {
+      "firstname": "justease",
+      "lastname": "svsdndbnd",
+      "username": "superjay",
+      "email": "njusticej@gmail.com",
+      "password": "123456",
+      "id": 13
+    }
+  ],
+  "gigs": [
+    {
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum ullamcorper elit vulputate tempor. Donec a volutpat metus, at finibus nisl. Vestibulum maximus neque at nunc consequat, vitae tincidunt sapien fermentum. Aenean laoreet mi sed lorem varius, et placerat lacus gravida. Suspendisse erat nisi, semper vel facilisis ut, commodo vitae ante. Aenean dictum in ex et egestas. Praesent tortor justo, cursus sed pretium eget, consequat in risus. Mauris auctor auctor suscipit. Curabitur in ultricies nisi. Phasellus auctor molestie erat. Donec interdum non ligula et hendrerit. Sed ut odio ac eros maximus rhoncus et eu urna. Cras nec augue sed elit interdum commodo.",
+      "budget": 6,
+      "duration": 3,
+      "category": "graphics & design",
+      "id": 1
+    }
+  ],
+  "bookings": [
+    {
+      "gig_id": 1,
+      "freelancer id": 1,
+      "user": 1,
+      "id": 1
+    }
+  ],
+  "freelancer": [
+    {
+      "id": 1,
+      "firstname": "Ugo",
+      "lastname": "Val",
+      "email": "ugoval@gmail.com",
+      "skill": "graphics and design",
+      "qualification": "bsc, MEchanical Engineering",
+      "address": "no.17 Olusanya street, ibadan",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum ullamcorper elit vulputate tempor. Donec a volutpat metus, at finibus nisl. Vestibulum maximus neque at nunc consequat, vitae tincidunt sapien fermentum. Aenean laoreet mi sed lorem varius, et placerat lacus gravida. Suspendisse erat nisi, semper vel facilisis ut, commodo vitae ante. Aenean dictum in ex et egestas. Praesent tortor justo, cursus sed pretium eget, consequat in risus. Mauris auctor auctor suscipit. Curabitur in ultricies nisi. Phasellus auctor molestie erat. Donec interdum non ligula et hendrerit. Sed ut odio ac eros maximus rhoncus et eu urna. Cras nec augue sed elit interdum commodo.",
+      "username": "prometius",
+      "password": "123456"
+    },
+    {
+      "firstname": "justease",
+      "lastname": "val",
+      "username": "azukaokenyi",
+      "email": "njusticej@gmail.com",
+      "password": "bsaaf",
+      "id": 2
+    },
+    {
+      "firstname": "justease",
+      "lastname": "svsdndbnd",
+      "email": "njusticej@gmail.com",
+      "qualification": "b.eng, Civil Engineering",
+      "description": "zzvs",
+      "address": "no 1 oluajayi street, ibadan",
+      "skill": "Programming & tech",
+      "username": "azukaokenyi",
+      "password": "123456",
+      "id": 3
+    }
+  ]
 }
