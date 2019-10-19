@@ -6,111 +6,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../jquery2.js"></script>
+    <script>
+        let freelancer = window.localStorage.getItem('freelancerId');
+            let freelancer_id = freelancer ? freelancer : 0;
+
+         const urlParams = new URLSearchParams(window.location.search);
+            let id = urlParams.get('id');
+            let profileId = localStorage.getItem('profileId');
+            
+            let profileIdGet = profileId? profileId:1
+            let profile = 0;
+
+            $.ajax({
+                url: `http://localhost:3000/profiles/${profileIdGet}`,
+                method: "get",
+            }).done(response => {
+                console.log(response)
+                //localStorage.setItem('profileId',response[0.id)
+
+                $('.addToMeNow').append(
+                    `
+        <form id="updateForm" action="">
+            <div class="form-group">
+                <label for="primarySkill"> Primary Skills</label>
+                <input type="text" name="primarySkills" class="form-control" value="${response.primarySkills}" placeholder="Enter your main skills">
+            </div>
+
+            <div class="form-group">
+                <label for="primarySkills"> Secondary Skills</label>
+                <input type="text" name="secondarySkills" class="form-control" value="${response.secondarySkills}" placeholder="Enter your skills">
+            </div>
+
+            <div class="form-group">
+                <label for="primarySkills"> Bio</label>
+                <textarea  id="bio" cols="5" class="form-control" rows="10" placeholder="Your Bio" value="kkk">${response.bio}</textarea>
+            </div>            
+
+            <div class="form-group">
+               
+               <input type="submit" class="btn btn-warning" value="update">
+            </div>
+        </form>
+    
+    `
+                )
+
+
+
+            }).catch(err => console.log('nothing to display here'))
+
+
+              $.ajax({
+                    url: `http://localhost:3000/freelancers/${freelancer_id}`,
+                    method: "get",
+                }).done(response => {
+                    $('.updateWelcomeName').append(
+                        `<span class="text-primary text-bold"> ${response.name}</span>`
+                    )
+                })
+            
+    </script>
 </head>
 
 <body>
-    <div class="container" style="margin-bottom: 20px; margin-top: 30px;">
-        <h1><strong style="color: rgb(17, 98, 9);"> ADO</strong><strong style="color: rgba(199, 186, 0, 0.911);">nis</strong></h1>
-    </div>
-    <center>
-        <div class="container">
-            <h3 class="display-4" style="color:rgb(17, 98, 9) ;">Update Your Profile </h3>
+    <div class="container mt-4 mb-4 ">
+        <div class="card">
+            <div class="card-header updateWelcomeName">
+                Update your profile,
+            </div>
+            <div class="card-body addToMeNow">
+
+            </div>
         </div>
-    </center>
-    <center>
+    </div>
 
-        <form style="width: 550px;">
-            <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label" style="color: rgba(199, 186, 0, 0.911);"> i am
-                    a...
-                </label>
-                <div class="col-sm-10">
-                    <textarea type="text" class="form-control" id="description" placeholder="personality" style="border-radius: 0%;"></textarea>
-                </div>
-            </div>
+    
 
-            </div>
-            <div class="form-group row">
-                <label for="text" class="col-sm-2 col-form-label" style="color: rgba(199, 186, 0, 0.911);">Qualification</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="qualification" placeholder="qualification" style="border-radius: 0%;">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="text" class="col-sm-2 col-form-label" style="color: rgba(199, 186, 0, 0.911);">address</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="address" placeholder="where you reside" style="border-radius: 0%;">
-                </div>
-            </div>
-            <div style="margin-bottom: 15px;">
-                <select style="border-radius: 0%;" id="category" class="custom-select custom-select-sm" style="margin-top: 30px; margin-bottom: 30px;">
-                    <option id="ban" selected>Business & lifestyle</option>
-                    <option id="gad" value="Graphics & Design">Graphics & Design</option>
-                    <option id="dm" value="Digital Marketing">Digital Marketing</option>
-                    <option id="wat" value="Writing & Translation">Writing & Translation</option>
-                    <option id="vaa" value="Video & Animation">Video & Animation</option>
-                    <option id="maa" value="Music & Audio">Music & Audio</option>
-                    <option id="pat" value="Programming & tech">Programming & tech</option>
-            
-                </select>
-            </div>
-            <center>
-                <div class="form-group row">
-                    <div class="col-sm-10" style="margin-top: 10px;margin-bottom: 25px;">
-                        <center><button type="submit" class="btn btn-outline-success" style="color: rgba(199, 186, 0, 0.911);border-radius: 0%;">Update</button></center>
-                    </div>
-                </div>
-            </center>
-        </form>
-
-    </center>
-    </center>
-
-    <script src="/public/jquery2.js"></script>
-    <script src="/public/js/bootstrap.js"></script>
+   
+    <script src="../js/bootstrap.js"></script>
     <script>
-        $(document).ready(function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            let id = urlParams.get('id');
-            console.log(id)
-            $.ajax({
-                url: `http://localhost:3000/freelancer/${id}`,
-                type: "GET",
-                success: function(res) {
-                    console.log(window.location.search)
-                    $("#qualify").val(res.qualification)
-                    $("#description").val(res.description)
-                    $("#address").val(res.address)
-                    $("#category").val(res.skill)
+        $('window').ready(() =>{
 
-                }
-            })
+        
+       
 
 
-            $("#updateAnimal").on("submit", function(e) {
+
+            // ghe functon call
+
+            $('#updateForm').submit((e) => {
                 e.preventDefault();
-                let data = {
+                alert('hello')
+                console.log(e)
+               
+                
+                        
 
+               
+               let updateForm = document.querySelector('#updateForm')
+               let bio = updateForm.bio.value;
+               let primarySkills = updateForm.primarySkills.value;
+               let secondarySkills = updateForm.secondarySkills.value;
+               let profileId = localStorage.getItem('profileId');
+               console.log(bio, primarySkills, secondarySkills)
+               let freelancer = window.localStorage.getItem('freelancerId');
+                let freelancer_id = freelancer ? freelancer : 1;
 
-                    qualification: $("#qualify").val(),
-                    description: $("#description").val(),
-                    address: $("#address").val(),
-                    skill: $("#category").val()
-
-                }
-                $.ajax({
-                    url: `http://localhost:3000/freelancer/${id}`,
-                    success: function(result) {
-                        alert('update successful');
-                    },
-                    type: "PUT",
-                    data: data
-                })
+               $.ajax({
+                   url: `http://localhost:3000/profiles/${profileId}`,
+                   method: "patch",
+                   data: {
+                       bio,
+                       primarySkills,
+                       secondarySkills,
+                       freelancer_id
+                   }
+               }).done(response => {
+                   console.log(response);
+               }).catch(err => console.log(err))
             })
 
         })
     </script>
+    
 </body>
 
 </html>

@@ -7,20 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adonis Login</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <!--login css-->
-    <link rel="stylesheet" href="/public/css/loginStyles.css">
+    <link rel="stylesheet" href="../css/loginStyles.css">
 </head>
 
 <body>
     <div class="container">
-        <h1 class="display-4 ">Adonis<span>Login</span></h1>
+        <h1 class="display-4 " style="color: rgba(199, 186, 0, 0.911);">user <span style="color: rgba(199, 186, 0, 0.911);"> Login</span></h1>
     </div>
     <Nav>
         <div class="container-fluid " id="wrap">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="/public/index.html">Home</a>
+                    <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./about.html">About</a>
@@ -54,7 +54,7 @@
             </form>
         </div>
     </div>
-    <script src="/public/jquery2.js"></script>
+    <script src="../jquery2.js"></script>
     <script src="../js/login.js"></script>
     <script>
         $(document).ready(function() {
@@ -79,28 +79,33 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: "http://localhost:3000/user",
+                    url: "http://localhost:3000/users",
                     data: data,
                     success: function(result) {
                         alert("registration successful");
+                        window.location = 'sign-up.html'
                     }
                 })
             })
             $("#signin").on("submit", function(e) {
-                e.preventDefault(e);
+                e.preventDefault();
                 let username = $("#signinuser").val();
                 let email = $("#mail").val();
                 let password = $("#signpass").val();
 
                 $.ajax({
                     type: 'GET',
-                    url: `http://localhost:3000/user?username=${username}&password=${password}`,
+                    url: `http://localhost:3000/users?username=${username}&password=${password}`,
 
                     success: function(result) {
                         let valid;
                         if (result.length > 0) {
-                            window.location = "/public/html/homepage.html";
                             window.localStorage.setItem('user', username);
+                            localStorage.setItem('userId', result[0].id);
+                            console.log(result)
+
+                            localStorage.setItem('username', username)
+                            window.location = "readall.html";
                         } else {
                             alert("invalid email or password");
                         }

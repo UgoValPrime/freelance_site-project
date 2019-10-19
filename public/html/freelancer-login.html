@@ -7,26 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adonis Login</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <!--login css-->
-    <link rel="stylesheet" href="/public/css/loginStyles.css">
+    <link rel="stylesheet" href="../css/loginStyles.css">
 </head>
 
 <body>
+    <div class="container" style="margin-bottom: 50px; margin-top: 30px;">
+        <h1><strong style="color: rgb(17, 98, 9);"> ADO</strong><strong style="color: rgba(199, 186, 0, 0.911);">nis</strong></h1>
+    </div>
     <div class="container">
-        <h1 class="display-4 ">Adonis<span>freelancer login</span></h1>
+        <h1 class="display-4 " style="color: rgba(199, 186, 0, 0.911);">freelancer <span style="color:rgb(17, 98, 9) ;">Login</span></h1>
     </div>
     <Nav>
         <div class="container-fluid " id="wrap">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="/public/index.html">Home</a>
+                    <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./about.html">About</a>
+                    <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item" id="login">
-                    <a class="nav-link active" href="./login.html">Login</a>
+                    <a class="nav-link active" href="login.html">Login</a>
                 </li>
                 <li class="nav-item" id="logout">
                     <button class="btn btn-light" type="submit">Logout</button>
@@ -38,11 +41,8 @@
     <div class="login-page">
         <div class="form">
             <form class="register-form" id="register">
-                <label>firstname:<input type="text" placeholder="firstname" id="fname"></label>
-                <label>lastname:<input type="text" placeholder="lastname" id="lname"></label>
+                <label>Name:<input type="text" placeholder="name" id="name"></label>
                 <label>Email: <input type="email" placeholder="email" id="mail"></label>
-                <label>qualification: <input type="text" placeholder="qualification" id="qualify"></label>
-                <label>More about you <textarea name="description" id="description" placeholder="describe you" cols="30" rows="10"></textarea></label>
                 <label>Address: <input type="text" placeholder="address" id="address"></label>
                 <label>Username:<input type="text" placeholder="username" id="user"></label>
                 <label>Password:<input type="password" placeholder="password" id="pass"></label>
@@ -55,10 +55,12 @@
                         <option id="vaa" value="Video & Animation">Video & Animation</option>
                         <option id="maa" value="Music & Audio">Music & Audio</option>
                         <option id="pat" value="Programming & tech">Programming & tech</option>
-                
+
                     </select>
                 </div>
+
                 <button type="submit">Create</button>
+
                 <p class="message">Already Registered?<a href="#">Login</a></p>
             </form>
             <form class="login-form" id="signin">
@@ -69,7 +71,7 @@
             </form>
         </div>
     </div>
-    <script src="/public/jquery2.js"></script>
+    <script src="../jquery2.js"></script>
     <script src="../js/login.js"></script>
     <script>
         $(document).ready(function() {
@@ -83,43 +85,48 @@
             }
             $("#register").on("submit", function(e) {
                 e.preventDefault(e);
-                let data = {
-                    firstname: $("#fname").val(),
-                    lastname: $("#lname").val(),
-                    email: $("#mail").val(),
-                    qualification: $("#qualify").val(),
-                    description: $("#description").val(),
-                    address: $("#address").val(),
-                    skill: $("#category").val(),
-                    username: $("#user").val(),
-                    password: $("#pass").val()
-                }
+
+                let name = $("#name").val(),
+                    email = $("#mail").val(),
+                    address = $("#address").val(),
+                    username = $("#user").val(),
+                    password = $("#pass").val(),
+                    category = $('#category').val();
+
 
                 $.ajax({
                     type: 'POST',
-                    url: "http://localhost:3000/freelancer",
-                    data: data,
+                    url: "http://localhost:3000/freelancers",
+                    data: {
+                        name,
+                        email,
+                        address,
+                        username,
+                        password,
+                        category
+                    },
                     success: function(result) {
                         alert("registration successful");
                     }
                 })
             })
             $("#signin").on("submit", function(e) {
-                e.preventDefault(e);
+                e.preventDefault();
                 let username = $("#signinuser").val();
                 let email = $("#mail").val();
                 let password = $("#signpass").val();
 
                 $.ajax({
                     type: 'GET',
-                    url: `http://localhost:3000/freelancer?username=${username}&password=${password}`,
+                    url: `http://localhost:3000/freelancers?username=${username}&password=${password}`,
 
                     success: function(result) {
                         console.log(result)
                         let valid;
                         if (result.length > 0) {
+
+                            window.localStorage.setItem('freelancerId', result[0].id)
                             window.location.href = `view-profile.html?id=${result[0].id}`;
-                            window.localStorage.setItem('freelancer', id);
                         } else {
                             alert("invalid username or password");
                         }

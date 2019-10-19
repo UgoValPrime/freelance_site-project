@@ -5,8 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <title>profile</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../jquery2.js"></script>
+
+    <script>
+        //$('window').ready(()=>{
+
+        let freelancer = window.localStorage.getItem('freelancerId');
+        let freelancer_id = freelancer ? freelancer : 0;
+        alert(freelancer_id)
+        $.ajax({
+            url: `http://localhost:3000/freelancers/${freelancer_id}`,
+            method: "get",
+        }).done(response => {
+            $('.welcomeName').append(
+                `<span class="text-primary text-bold">Welcome ${response.name}</span>`
+            )
+        })
+
+
+        $.ajax({
+            url: `http://localhost:3000/profiles?freelancer_id=${freelancer_id}`,
+            method: "get",
+        }).done(response => {
+            console.log(response)
+            resp = response[0];
+
+            if (response.length === 0) {
+                console.log('your query should be here ')
+
+                $('.addToMe').append(
+
+                    `
+        <p> update your profile</p>
+
+        <form id="createProfileForm">
+            <div class="form-group">
+                <label for="primarySkill"> Primary Skills</label>
+                <input type="text" name="primarySkills" class="form-control"  placeholder="Enter your main skills">
+            </div>
+
+            <div class="form-group">
+                <label for="primarySkills"> Secondary Skills</label>
+                <input type="text" name="secondarySkills" class="form-control"  placeholder="Enter your skills">
+            </div>
+
+            <div class="form-group">
+                <label for="primarySkills"> Bio</label>
+                <textarea  id="bio" cols="5" class="form-control" rows="10" placeholder="Your Bio" ></textarea>
+            </div>            
+
+            <div class="form-group">
+               
+               <input type="submit" class="btn btn-primary" value="create">
+            </div>
+        </form>
+        
+
+        `
+                )
+            } else {
+                localStorage.setItem('profileid', resp.id)
+                $('.addToMe').append(
+
+                    `<label class="text-warning"> Bio</label>
+        <p> ${resp.bio}</p>
+        <label class="text-warning"> main skills</label>
+        <p> ${resp.primarySkills}</p>
+        <label class="text-warning"> skills</label>
+        <p> ${resp.secondarySkills}</p>
+
+        <form id="deleteProfile">
+            <input type="submit" value="delete profile" class="btn btn-danger">
+        </form>
+
+        `
+                )
+            }
+        }).catch(err => console.log('nothing to display here'))
+
+
+        //mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+
+
+
+
+        //  });
+    </script>
+
+    <script src="../js/profile.js"></script>
 </head>
 
 <body>
@@ -41,14 +130,14 @@
                 <span class="navbar-text">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/public/html/create-gig.html">create Gig<span
+                                <a class="nav-link" href="create-gig.html">create Gig<span
                                         class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">My Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/public/html/update-profile.html?" class="h4">Update profile</a>
+                    <a class="nav-link" href="update-profile.html" class="h4">Update profile</a>
 
                 </li>
                 </ul>
@@ -56,45 +145,62 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-4">
-        <h1 id="fname"></h1>
-        <h4 id="user"></h4>
-        <p id="qualify"></p>
-        <p id="category"></p>
-        <p id="description"></p>
+
+    <!-- showing the updating form in the page -->
+    <div class="container mt-4 mb-4 addToMeNow">
+
+        <div class="card">
+            <div class="card-header">
+                freelancers details
+            </div>
+
+            <div class="card-body mb-3 mt-3 addToMe">
+                <div class="card-title welcomeName"></div>
+
+            </div>
+
+        </div>
+
+
+
     </div>
-    <div class="container" style="float: left;"> <button onclick="deleteProfile({current.id});" class="btn btn-light">delete</button>
-        <h1><button onclick="updateProfile()" class="btn btn-light" id="update">update</button></h1>
     </div>
-    <script src="/public/jquery2.js"></script>
-    <script src="/public/js/bootstrap.js"></script>
+
+
+    <script src="../js/bootstrap.js"></script>
+
+
     <script>
-        $(document).ready(function() {
-            let url = new URLSearchParams(window.location.search);
-            let id = url.get('id');
-            console.log(id)
-            $.ajax({
-                url: `http://localhost:3000/freelancer/${id}`,
-                method: "GET",
-                success: function(response) {
-                    console.log(response.name)
-                    $("#fname").html(response.firstname);
-                    $("#user").text(response.username);
-                    $("#qualify").text(response.qualification);
-                    $("#category").text(response.skill);
-                    $("#description").text(response.description);
-                }
+        $('window').ready(() => {
+            $('form').submit(e => {
+                e.preventDefault()
+                console.log(e)
+                let createProfile = document.querySelector('#createProfileForm');
+
+                let bio = createProfile.bio.value;
+                let primarySkills = createProfile.primarySkills.value;
+                let secondarySkills = createProfile.secondarySkills.value;
+                let freelancer_id = localStorage.getItem('freelancerId');
+                console.log(bio, primarySkills, secondarySkills)
+
+
+                $.ajax({
+                    url: `http://localhost:3000/profiles`,
+                    method: "post",
+                    data: {
+                        bio,
+                        primarySkills,
+                        secondarySkills,
+                        freelancer_id
+                    }
+                }).done(response => {
+                    console.log(response);
+                }).catch(err => console.log(err))
             })
-
         })
     </script>
-    <script>
-        const userId = window.localStorage.getItem('id');
-        $('#update').on('click', function updateProfile() {
-            window.location = `update-profile.html?id=${userId}`
 
-        })
-    </script>
+
 </body>
 
 </html>

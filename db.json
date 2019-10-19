@@ -1,156 +1,175 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
-      "firstname": "ariesprime",
-      "lastname": "aiezen",
-      "email": "ugoval93@yahoo.com",
-      "username": "ariesprime",
-      "password": "nemesis101"
+      "firstName": "Ugoval",
+      "lastName": "Valugo",
+      "email": "ugoval@outlook.com",
+      "userName": "ugoVal",
+      "password": "UGOVAL"
     },
     {
-      "email": "valeweleokenyi@yahoo.com",
+      "firstname": "emeka",
+      "lastname": "chukwu",
+      "username": "jude",
+      "email": "emeka@gmail.com",
+      "password": "jude1234",
       "id": 2
     },
     {
-      "firstname": "ewele",
-      "lastname": "val",
-      "email": "valeweleokenyi@yahoo.com",
-      "username": "eweval",
-      "password": "123456",
-      "level": "1",
+      "firstname": "emeka",
+      "lastname": "chukwu",
+      "username": "jude1",
+      "email": "emek11a@gmail.com",
+      "password": "jude1234",
+      "id": 3
+    },
+    {
+      "firstname": "tamy",
+      "lastname": "tammy",
+      "username": "chukwu",
+      "email": "tammy@gmail.com",
+      "password": "chukwu1234",
       "id": 4
-    },
-    {
-      "firstname": "nduka",
-      "lastname": "val",
-      "email": "ndukaval99@gmail.com",
-      "username": "lunaticX",
-      "password": "2468fam",
-      "level": "Freelance",
-      "id": 5
-    },
-    {
-      "firstname": "nduka",
-      "lastname": "val",
-      "email": "ndukaval@gmail.com",
-      "username": "the_unknown",
-      "password": "098765",
-      "level": "Freelance",
-      "id": 6
-    },
-    {
-      "firstname": "sbdfzdb",
-      "lastname": "svsdndbnd",
-      "email": "valeweleokenyi@yahoo.com",
-      "username": "vxbdnfdx",
-      "password": "nemesis",
-      "level": "Freelance",
-      "id": 7
-    },
-    {
-      "firstname": "Ayebakuro",
-      "lastname": "val",
-      "email": "valeweleokenyi@slack.com",
-      "username": "kuroval",
-      "password": "hunter",
-      "level": "Freelance",
-      "id": 8
-    },
-    {
-      "firstname": "Ayebakuro",
-      "lastname": "val",
-      "email": "valeweleokenyi@slack.com",
-      "username": "kuroval",
-      "password": "hunter",
-      "level": "Freelance",
-      "id": 9
-    },
-    {
-      "firstname": "sbdfzdb",
-      "lastname": "svsdndbnd",
-      "email": "iceboss101@gmail.com",
-      "username": "ugoval",
-      "password": "123456",
-      "level": "Freelance",
-      "id": 10
-    },
-    {
-      "firstname": "wellz",
-      "lastname": "val",
-      "email": "valeweleokenyi@slack.com",
-      "username": "ewele",
-      "password": "123456",
-      "level": "Freelance",
-      "id": 11
-    },
-    {
-      "firstname": "sbdfzdb",
-      "lastname": "val",
-      "email": "iceboss@gmail.com",
-      "username": "prometius",
-      "password": "123456",
-      "User": "user",
-      "freelance": "Freelance",
-      "id": 12
-    },
-    {
-      "firstname": "justease",
-      "lastname": "svsdndbnd",
-      "username": "superjay",
-      "email": "njusticej@gmail.com",
-      "password": "123456",
-      "id": 13
     }
   ],
-  "gigs": [
+  "profiles": [
     {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum ullamcorper elit vulputate tempor. Donec a volutpat metus, at finibus nisl. Vestibulum maximus neque at nunc consequat, vitae tincidunt sapien fermentum. Aenean laoreet mi sed lorem varius, et placerat lacus gravida. Suspendisse erat nisi, semper vel facilisis ut, commodo vitae ante. Aenean dictum in ex et egestas. Praesent tortor justo, cursus sed pretium eget, consequat in risus. Mauris auctor auctor suscipit. Curabitur in ultricies nisi. Phasellus auctor molestie erat. Donec interdum non ligula et hendrerit. Sed ut odio ac eros maximus rhoncus et eu urna. Cras nec augue sed elit interdum commodo.",
-      "budget": 6,
-      "duration": 3,
-      "category": "graphics & design",
-      "id": 1
+      "id": 1,
+      "bio": "your bio should be here please emeka",
+      "primarySkills": "Mobile and Wed developement, Software Dev, Animator",
+      "secondarySkills": "writing, public speaking, research",
+      "freelancer_id": 1
+    },
+    {
+      "id": 2,
+      "bio": "your bio should be here please emeka",
+      "primarySkills": "Mobile and Wed developement, Software Dev, Animator",
+      "secondarySkills": "writing, public speaking, research",
+      "freelancer_id": "2"
+    },
+    {
+      "id": 3,
+      "bio": "your bio should be here please emeka",
+      "primarySkills": "Mobile and Wed developement, Software Dev, Animator",
+      "secondarySkills": "writing, public speaking, research",
+      "freelancer_id": "3"
     }
   ],
   "bookings": [
     {
-      "gig_id": 1,
-      "freelancer id": 1,
-      "user": 1,
-      "id": 1
-    }
-  ],
-  "freelancer": [
-    {
       "id": 1,
-      "firstname": "Ugo",
-      "lastname": "Val",
-      "email": "ugoval@gmail.com",
-      "skill": "graphics and design",
-      "qualification": "bsc, MEchanical Engineering",
-      "address": "no.17 Olusanya street, ibadan",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum ullamcorper elit vulputate tempor. Donec a volutpat metus, at finibus nisl. Vestibulum maximus neque at nunc consequat, vitae tincidunt sapien fermentum. Aenean laoreet mi sed lorem varius, et placerat lacus gravida. Suspendisse erat nisi, semper vel facilisis ut, commodo vitae ante. Aenean dictum in ex et egestas. Praesent tortor justo, cursus sed pretium eget, consequat in risus. Mauris auctor auctor suscipit. Curabitur in ultricies nisi. Phasellus auctor molestie erat. Donec interdum non ligula et hendrerit. Sed ut odio ac eros maximus rhoncus et eu urna. Cras nec augue sed elit interdum commodo.",
-      "username": "prometius",
-      "password": "123456"
+      "jobTitle": "Your job title",
+      "description": "your job description should be stated here for the freelance to see",
+      "category": "Programming & tech",
+      "user_id": 1,
+      "freelancer_id": 2,
+      "amount": 6574,
+      "duration": 5
     },
     {
-      "firstname": "justease",
-      "lastname": "val",
-      "username": "azukaokenyi",
-      "email": "njusticej@gmail.com",
-      "password": "bsaaf",
+      "jobTitle": "",
+      "description": "",
+      "amount": "",
+      "category": "Business & lifestyle",
+      "duration": "",
+      "userId": 1,
+      "username": "",
+      "freelancerId": "3",
       "id": 2
     },
     {
-      "firstname": "justease",
-      "lastname": "svsdndbnd",
-      "email": "njusticej@gmail.com",
-      "qualification": "b.eng, Civil Engineering",
-      "description": "zzvs",
-      "address": "no 1 oluajayi street, ibadan",
-      "skill": "Programming & tech",
-      "username": "azukaokenyi",
-      "password": "123456",
+      "jobTitle": "",
+      "description": "",
+      "amount": "",
+      "category": "Business & lifestyle",
+      "duration": "",
+      "userId": 1,
+      "username": "",
+      "freelancerId": "3",
+      "id": 3
+    },
+    {
+      "jobTitle": "web design",
+      "description": "your description of the work",
+      "amount": "12000",
+      "category": "6",
+      "duration": "55",
+      "userId": 1,
+      "username": "",
+      "freelancerId": "3",
+      "id": 4
+    },
+    {
+      "jobTitle": "web design",
+      "description": "your description of the work",
+      "amount": "12000",
+      "category": "6",
+      "duration": "55",
+      "userId": 1,
+      "username": "",
+      "freelancerId": "3",
+      "id": 5
+    },
+    {
+      "jobTitle": "yyyyy",
+      "description": "ddddd",
+      "amount": "3333",
+      "category": "2",
+      "duration": "4444",
+      "userId": 1,
+      "username": "emeeme",
+      "freelancerId": "3",
+      "id": 6
+    },
+    {
+      "jobTitle": "",
+      "description": "",
+      "amount": "",
+      "category": "Business & lifestyle",
+      "duration": "",
+      "userId": "0",
+      "username": "",
+      "freelancerId": "1",
+      "id": 7
+    },
+    {
+      "jobTitle": "BIG JOB",
+      "description": "big things",
+      "amount": "55555",
+      "category": "2",
+      "duration": "4",
+      "userId": "0",
+      "username": "",
+      "freelancerId": "1",
+      "id": 8
+    }
+  ],
+  "freelancers": [
+    {
+      "id": 1,
+      "name": "ugochukwu valentine",
+      "email": "ugoval@outlook.com",
+      "password": "UGOVAL",
+      "category": "Programming & tech",
+      "username": "ugoVal"
+    },
+    {
+      "name": "emeka chukwu",
+      "email": "emeka@gmail.com",
+      "address": "39, olu drive",
+      "username": "emeka",
+      "password": "emeka",
+      "category": "Programming & tech",
+      "id": 2
+    },
+    {
+      "name": "emka chukwu",
+      "email": "emeka@gmail.com",
+      "address": "39, olu drive",
+      "username": "chukwu",
+      "password": "chukwu",
+      "category": "Programming & tech",
       "id": 3
     }
   ]
